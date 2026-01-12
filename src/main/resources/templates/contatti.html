@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/base :: head}"></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="hero py-5">
+  <div class="container py-5 text-center">
+    <span class="brand-badge mb-3">Contatti</span>
+    <h1 class="display-6 section-title mb-2">Parliamo del tuo percorso</h1>
+    <p class="text-muted mb-0">Scrivici per informazioni su corsi, certificazioni o orientamento.</p>
+  </div>
+  <div class="divider"></div>
+</header>
+
+<section class="py-5">
+  <div class="container py-4">
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <div class="feature rounded-2xl p-4 h-100">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="icon"><i class="bi bi-telephone"></i></div>
+            <div>
+              <h5 class="mb-0">Recapiti</h5>
+              <small class="text-muted">Rispondiamo in tempi rapidi</small>
+            </div>
+          </div>
+
+          <div class="d-flex flex-column gap-2">
+            <a class="text-decoration-none" href="mailto:amministrazione@madoacademy.it">
+              <i class="bi bi-envelope me-2"></i> amministrazione@madoacademy.it
+            </a>
+            <a class="text-decoration-none" href="tel:+393274259003">
+              <i class="bi bi-phone me-2"></i> +39 327 4259003
+            </a>
+          </div>
+
+          <hr class="my-4">
+
+          <div class="d-flex gap-3">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram fs-4"></i></a>
+            <a href="#" aria-label="Facebook"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin fs-4"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="rounded-2xl shadow-soft p-4 bg-white">
+          <h4 class="section-title mb-1">Invia un messaggio</h4>
+          <p class="text-muted mb-4">Compila i campi e ti ricontattiamo.</p>
+
+          <!-- Form “solo front-end”. Se vuoi lo rendiamo funzionante con un POST -->
+          <form class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Nome</label>
+              <input type="text" class="form-control form-control-lg rounded-2xl" placeholder="Mario">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Cognome</label>
+              <input type="text" class="form-control form-control-lg rounded-2xl" placeholder="Rossi">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control form-control-lg rounded-2xl" placeholder="mario.rossi@email.com">
+            </div>
+            <div class="col-12">
+              <label class="form-label">Messaggio</label>
+              <textarea class="form-control form-control-lg rounded-2xl" rows="5" placeholder="Raccontaci il tuo obiettivo..."></textarea>
+            </div>
+            <div class="col-12 d-flex gap-3 align-items-center">
+              <button type="submit" class="btn btn-brand btn-lg rounded-pill px-4">
+                Invia <i class="bi bi-send ms-1"></i>
+              </button>
+              <small class="text-muted">Oppure scrivici direttamente via email.</small>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
