@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/base :: head}"></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="hero py-5">
+  <div class="container py-5 text-center">
+    <span class="brand-badge mb-3">Corsi</span>
+    <h1 class="display-6 section-title mb-2">Scegli il percorso giusto</h1>
+    <p class="text-muted mb-0">Università, certificazioni linguistiche e informatiche: esplora l’offerta formativa.</p>
+  </div>
+  <div class="divider"></div>
+</header>
+
+<section class="py-5">
+  <div class="container py-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4" th:if="${servizi != null}">
+      <div class="col" th:each="s : ${servizi}">
+        <a class="card course-card h-100 card-link" th:href="@{${s.linkDettaglio}}">
+          <img th:src="${s.urlFoto}" class="card-img-top" alt="" th:alt="${'Immagine di ' + s.name}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-2" th:text="${s.name}">Nome</h5>
+            <p class="card-text mb-3" th:text="${s.descrizione}">Descrizione</p>
+            <div class="mt-auto d-flex align-items-center gap-2 text-primary">
+              <span class="fw-semibold">Scopri di più</span>
+              <i class="bi bi-arrow-right"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center py-5" th:if="${servizi == null || #lists.isEmpty(servizi)}">
+      <div class="rounded-2xl border p-5 mx-auto" style="max-width:42rem;">
+        <h5 class="mb-2">Nessun corso disponibile al momento</h5>
+        <p class="text-muted mb-3">Stiamo aggiornando l’offerta formativa. Torna a trovarci presto!</p>
+        <a th:href="@{/contatti}" class="btn btn-brand rounded-pill px-3">Contattaci</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 presentation">
+  <div class="container py-4 text-center">
+    <h3 class="section-title mb-2">Vuoi un consiglio rapido?</h3>
+    <p class="text-muted mb-4">Descrivici il tuo obiettivo e ti suggeriamo il percorso più adatto.</p>
+    <a th:href="@{/contatti}" class="btn btn-brand btn-lg rounded-pill px-4">
+      <i class="bi bi-envelope-fill me-1"></i> Richiedi informazioni
+    </a>
+  </div>
+</section>
+
+<div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
